@@ -1,0 +1,16 @@
+node_modules/
+dist/
+server/target/
+.tools/
+*.log
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+server/gen/
+libs/**/*.exe
+libs/**/*.nnue
+libs/**/*.dll
+libs/**/*.onnx
+output/

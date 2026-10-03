@@ -1,0 +1,9 @@
+import { test } from 'node:test'
+import assert from 'node:assert/strict'
+import { START_FEN, parseFen, toFen, legalMove, applyMove, notation, validatePosition, inCheck, legalTargets } from '../src/chess'
+test('初始局面 FEN 往返、棋子数量和合法走法',()=>{const p=parseFen(START_FEN);assert.equal(toFen(p.board,p.side),START_FEN);assert.equal(p.board.flat().filter(Boolean).length,32);assert.equal(validatePosition(p.board),null);assert.equal(legalMove(p.board,'w','b2e2'),true);assert.equal(notation(p.board,'b2e2'),'炮八平五');assert.equal(notation(p.board,'b0c2'),'傌八进七')})
+test('炮需要炮架吃子，车不能越子',()=>{const p=parseFen(START_FEN);assert.equal(legalMove(p.board,'w','b2b9'),true);assert.equal(legalMove(p.board,'w','b2b7'),false);assert.equal(legalMove(p.board,'w','a0a4'),false)})
+test('马腿、象眼、兵卒不可后退',()=>{const p=parseFen(START_FEN);p.board[8][1]='P';assert.equal(legalMove(p.board,'w','b0c2'),false);p.board[8][1]='';p.board[8][3]='P';assert.equal(legalMove(p.board,'w','c0e2'),false);assert.equal(legalMove(p.board,'w','a3a2'),false);assert.equal(legalMove(p.board,'w','a3b3'),false)})
+test('将帅照面和被将时不允许走无关棋子',()=>{const p=parseFen('4k4/9/9/9/4R4/9/9/9/9/4K4 w - - 0 1');assert.equal(legalMove(p.board,'w','e5f5'),false);const q=parseFen('3k5/9/9/9/9/9/9/4r4/9/R3K4 w - - 0 1');assert.equal(inCheck(q.board,'w'),true);assert.equal(legalMove(q.board,'w','a0a1'),false)})
+test('走棋切换行棋方，悔棋可无损还原',()=>{const p=parseFen(START_FEN),q=applyMove(p,'b2e2');assert.equal(q.side,'b');assert.equal(q.board[7][4],'C');assert.equal(p.board[7][1],'C');assert.equal(q.board[7][1],'');assert.ok(legalTargets(q.board,'b','b9').includes('c7'))})
+test('拒绝异常 FEN 和缺少将帅',()=>{assert.throws(()=>parseFen('9/9 w'));assert.throws(()=>parseFen(START_FEN.replace('rnbakabnr','rnbakabnrr')));assert.throws(()=>parseFen(START_FEN.replace(' w ',' x ')));const p=parseFen(START_FEN);p.board[0][4]='';assert.match(validatePosition(p.board)||'',/将|帅/)})

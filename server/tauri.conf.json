@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "观棋",
+  "version": "1.0.0",
+  "identifier": "local.guanqi.coach",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devUrl": "http://localhost:1420",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [{"label":"main","title":"观棋 · 象棋研习室","width":1440,"height":940,"minWidth":920,"minHeight":700,"center":true}],
+    "security": {"csp":"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' asset: http://asset.localhost data: blob:; connect-src ipc: http://ipc.localhost; font-src 'self' data:; object-src 'none'; base-uri 'self'"}
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "icon": ["icons/icon.ico","icons/icon.png"],
+    "resources": {
+      "../libs/pikafish/pikafish-windows.exe":"libs/pikafish/pikafish-windows.exe",
+      "../libs/pikafish/pikafish.nnue":"libs/pikafish/pikafish.nnue",
+      "../libs/pikafish/COPYING.txt":"libs/pikafish/COPYING.txt",
+      "../libs/models/board.onnx":"libs/models/board.onnx",
+      "../libs/runtime/onnxruntime.dll":"libs/runtime/onnxruntime.dll",
+      "../libs/runtime/onnxruntime_providers_shared.dll":"libs/runtime/onnxruntime_providers_shared.dll",
+      "../libs/runtime/LICENSE.txt":"libs/runtime/LICENSE.txt",
+      "../LICENSE":"licenses/Apache-2.0.txt",
+      "../THIRD_PARTY_NOTICES.md":"licenses/THIRD_PARTY_NOTICES.md"
+    },
+    "windows": {"nsis":{"languages":["SimpChinese"],"displayLanguageSelector":false,"installMode":"currentUser"}}
+  }
+}

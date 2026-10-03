@@ -1,0 +1,1 @@
+{"$schema":"../gen/schemas/desktop-schema.json","identifier":"default","description":"主窗口事件通信","windows":["main"],"permissions":["core:default"]}
