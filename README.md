@@ -4,7 +4,7 @@
 
 ## 下载
 
-[下载 Windows x64 便携版（v1.0.0）](https://github.com/liul79747-source/guanqi-xiangqi-coach/releases/latest/download/guanqi-windows-x64.zip)。下载后解压，运行 `guanqi.exe`。仓库目前为私人仓库，下载链接仅对仓库所有者和获准协作者开放。
+[下载 Windows x64 便携版（v1.0.0）](https://github.com/liul79747-source/guanqi-xiangqi-coach/releases/latest/download/guanqi-windows-x64.zip)。下载后解压，运行 `guanqi.exe`。
 
 ## 运行
 
