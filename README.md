@@ -2,6 +2,10 @@
 
 按照提供的 Vue 3 + TypeScript + Vite + Naive UI / Tauri 2 + Rust 架构制作的本机象棋学习软件。
 
+## 下载
+
+[下载 Windows x64 便携版（v1.0.0）](https://github.com/liul79747-source/guanqi-xiangqi-coach/releases/latest/download/guanqi-windows-x64.zip)。下载后解压，运行 `guanqi.exe`。仓库目前为私人仓库，下载链接仅对仓库所有者和获准协作者开放。
+
 ## 运行
 
 双击项目根目录的 **启动观棋.cmd**。存在 `output/观棋/guanqi.exe` 时直接打开桌面版；否则启动本机浏览器版。桌面便携版需要保持 `guanqi.exe` 与同目录 `libs` 文件夹一起，不能单独移动 exe。
