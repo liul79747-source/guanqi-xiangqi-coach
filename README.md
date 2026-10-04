@@ -70,7 +70,7 @@ Rust 测试：`cargo test --manifest-path server/Cargo.toml --lib`。在 Windows
 
 克隆仓库后，`libs` 下的引擎、NNUE、ONNX 模型和运行库不会自动下载。请按 [`libs/README.md`](libs/README.md) 放入有权使用的资源；缺少这些文件时，仍可修改前端源码，但完整桌面版打包和棋盘识别不可用。
 
-📜 许可声明
+## 📜 许可声明
 仅供学习与研究使用。
 严禁任何商业化或非法用途。
 使用本工具时，请遵守各平台用户协议，本工具不涉及任何破解或自动化操作。
